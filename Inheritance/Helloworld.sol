@@ -1,8 +1,8 @@
 pragma solidity 0.5.12;
 
-import "./Owner.sol";
+import "./DestroySC.sol";
 
-contract Helloworld is Owner{
+contract Helloworld is Destroyable{                 //Inherit from DestroySC.sol
 
     /*
     The use of the modifier means code used extensively is declared upfront ie onlyOwner
