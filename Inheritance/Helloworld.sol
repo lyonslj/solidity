@@ -1,6 +1,8 @@
 pragma solidity 0.5.12;
 
-contract Helloworld{
+import "./Owner.sol";
+
+contract Helloworld is Owner{
 
     /*
     The use of the modifier means code used extensively is declared upfront ie onlyOwner
@@ -16,17 +18,9 @@ contract Helloworld{
         bool senior;
         }
 
-    modifier onlyOwner(){
-        require(msg.sender == owner);
-        _; //Continue execution
-    }
+    
 
-    // constructor is run when the contract is created
-    //we want to know who the owner of the contract is. This is only run once and at creation
-    address public owner;
-    constructor() public {
-        owner = msg.sender;
-        }
+    
 
     // initialise your mapping which is the users address to Person
     mapping(address => Person) private people;       // mapping to a Person; can change public to private
