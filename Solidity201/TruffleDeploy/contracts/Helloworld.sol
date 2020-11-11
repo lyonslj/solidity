@@ -8,8 +8,8 @@ contract Helloworld {
             return message;
     }
 
-  //  function setMessage(string memory newMessage) public {
-  //      message = newMessage;
-  //  }
+    function setMessage(string memory newMessage) public {
+        message = newMessage;
+    }
 
 }
