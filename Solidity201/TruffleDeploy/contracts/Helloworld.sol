@@ -10,7 +10,7 @@ contract Helloworld {
 
     function setMessage(string memory newMessage) public payable {
         message = newMessage;
-        require(msg.value >= 1 ether);
+        require(msg.value >= 1000000000 wei);
     }
 
 }
