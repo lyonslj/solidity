@@ -37,5 +37,32 @@ contract("People", async function(accounts){
         let instance = await People.deployed();
         await instance.createPerson("Graeme", 50, 190, {from: accounts[0],value: web3.utils.toWei("1", "ether")});
         await truffleAssert.passes(instance.deletePerson(accounts[1], {from: accounts[0]}), truffleAssert.ErrorType.REVERT);
-    })
+    });
+    // Test that balance increases when new create person with 1 eth
+    it("Test that balance goes to 1 eth when create person and it matches blockchain bal, also 1 eth ", async function(){
+        let instance = await People.deployed();
+        await instance.createPerson("Graeme", 50, 190, {from: accounts[2],value: web3.utils.toWei("1", "ether")});
+        let balance = await instance.balance;
+        let contractBalance = await web3.eth.getBalance(instance.address)           // get bal from contract
+        assert(balance = web3.utils.toWei("1", "ether")) &&
+                (balance = contractBalance)
+    });
+    
+    it("Test that contract owner can withdraw ", async function(){
+        let instance = await People.deployed();
+        await instance.createPerson("Graeme", 50, 190, {from: accounts[0],value: web3.utils.toWei("1", "ether")});
+        await truffleAssert.fails(instance.withdrawAll( {from: accounts[1]}), truffleAssert.ErrorType.REVERT);
+    });
+
+    it("Test that balance on withdrawal --> 0 ", async function(){
+         let instance = await People.new();
+        await instance.createPerson("Lisa", 35, 160, {from: accounts[2], value: web3.utils.toWei("1", "ether")});
+        await instance.withdrawAll();
+        let balance = await instance.balance();
+    //let floatBalance = parseFloat(balance);
+        let realBalance = await web3.eth.getBalance(instance.address);
+        assert(balance == web3.utils.toWei("0", "ether") && balance == realBalance, "Contract balance was not 0 after withdrawal or did not match")
+    });
 });
+
+
