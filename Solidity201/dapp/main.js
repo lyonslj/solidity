@@ -20,6 +20,16 @@ var config = {
     value: web3.utils.toWei("1","ether")   //convert wei to eth
     };
 
-contractInstance.methods.createPerson(name, age, height).send(config);
+contractInstance.methods.createPerson(name, age, height).send(config)
+// Add event listener with .on so you can track vents
+        .on("confirmation", function(confirmationNr){
+            console.log(confirmationNr);
+        }) 
+        .on("transactionHash", function(hash){
+        console.log(hash);
+        })
+        .on("receipts", function(receipt){
+            console.log(receipt);
+        })
 
 }
