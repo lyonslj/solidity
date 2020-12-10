@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>CoinFlip</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Coin Flip Dapp</h1>
+        <p class="lead">Flip your coin </p>
+      </div>
+    </div>
+    <div class="container">
+      
+      <div>
+        <h2>Fund Contract</h2>
+        <div class="input-group mb-3">
+          <input id="eth_input" placeholder="From address"type="number"> 
+          <input id="eth_input" placeholder="ETH amount"type="number">   
+          <button id="add_eth_button" class="btn btn-primary">  Fund</button>      
+        </div>
+      
+        <hr>
+      
+      <div>
+        <h3>How much eth will you bet</h3>
+        <div class="input-group mb-3">
+          <input id="eth_input" placeholder="ETH amount"type="number">   
+          <button id="add_eth_button" class="btn btn-primary">  Flip Coin</button>      
+        </div>
+        
+        <hr>
+
+      <div>
+        <h4>Contract Balance:</h4> <span id="con_bal"></span>
+        <h4>My Balance:</h4>  <span id="my_bal"></span>
+        <input id="my_account" placeholder="account"type="number">  
+        <button id="my_acc_bal_button" class="btn btn-primary">  Get Bal</button>     
+    </div>
+
+    <hr>
+
+    <div>
+      <h3>Withdraw funds</h3>
+      <div class="input-group mb-3">
+  
+        <button id="payout_button" class="btn btn-primary">  Payout</button>      
+      </div>
+
+
+  </body>
+</html>
